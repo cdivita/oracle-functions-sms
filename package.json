@@ -1,0 +1,16 @@
+{
+    "name": "oracle-functions-sms",
+    "version": "0.1.0",
+    "description": "A function for sending SMS through third party integrations (like Twilio)",
+    "main": "func.js",
+    "author": "Claudio Di Vita",
+    "repository": {
+        "url": "https://github.com/cdivita/oracle-functions-sms.git"
+    },
+    "license": "Apache-2.0",
+    "dependencies": {
+        "@fnproject/fdk": ">=0.0.19",
+        "oci-secrets": "^1.7.0",
+        "twilio": "^3.51.0"
+    }
+}
