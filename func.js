@@ -38,14 +38,14 @@ function configureTwilio(ctx) {
     let accountSid = ctx.config.TWILIO_ACCOUNT_SID;
 
     if (!accountSid) {
-        return fail(ctx, 500, "The configuration variable TWILIO_ACCOUNT_SID is missing");
+        return Promise.reject(fail(ctx, 500, "The configuration variable TWILIO_ACCOUNT_SID is missing"));
     }
 
     let authToken = ctx.config.TWILIO_AUTH_TOKEN;
     let authTokenSecretId = ctx.config.TWILIO_AUTH_TOKEN_SECRET_ID;
 
     if (!authToken || !authTokenSecretId) {
-        return fail(ctx, 500, "Either TWILIO_AUTH_TOKEN or TWILIO_AUTH_TOKEN_SECRET_ID is required as configuration variable");
+        return Promise.reject(fail(ctx, 500, "Either TWILIO_AUTH_TOKEN or TWILIO_AUTH_TOKEN_SECRET_ID is required as configuration variable"));
     }
 
     return new Promise((resolve, reject) => {
