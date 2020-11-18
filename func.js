@@ -44,7 +44,7 @@ function configureTwilio(ctx) {
     let authToken = ctx.config.TWILIO_AUTH_TOKEN;
     let authTokenSecretId = ctx.config.TWILIO_AUTH_TOKEN_SECRET_ID;
 
-    if (!authToken || !authTokenSecretId) {
+    if (!authToken && !authTokenSecretId) {
         return Promise.reject(fail(ctx, 500, "Either TWILIO_AUTH_TOKEN or TWILIO_AUTH_TOKEN_SECRET_ID is required as configuration variable"));
     }
 
@@ -76,6 +76,8 @@ function configureTwilio(ctx) {
 function fail(ctx, status, message) {
 
     ctx.httpGateway.statusCode = status;
+
+    console.log(`${message} (status: ${status})`)
 
     return {status: status, message: message};
 }
